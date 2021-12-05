@@ -54,11 +54,14 @@ class LocationService
 
         $cache = new FilesystemAdapter();
         $cache_location = $cache->getItem('info.location');
+        $cache_ip = $cache->getItem('info.IP');
 
         //If city isn't saved in cache, then saves it
         if (!$cache_location->isHit()) {
             $cache_location->set($this->getLocation());
+            $cache_ip->set($this->ip->getIP());
             $cache->save($cache_location);
+            $cache->save($cache_ip);
 
             $this->saveLocation();
 
@@ -73,7 +76,6 @@ class LocationService
         if($city){
             return;
         }
-
         //If client IP with city isn't saved in DB, then do that
         $entityManager = $this->doctrine->getManager();
     

@@ -11,13 +11,12 @@ class IPService
         $request = Request::createFromGlobals();
 
         $ip = $request->getClientIp();
-        $ip = "46.109.17.166";
+        $ip = "46.109.17.164";
 
         return $ip;
     }
 
     public function showIP():string{
-
         $cache = new FilesystemAdapter();
         $cache_IP = $cache->getItem('info.IP');
 

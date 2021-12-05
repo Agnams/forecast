@@ -21,7 +21,6 @@ class ForecastService
     private function getForecast()
     {
         //Gets forecast for client by API
-        
         $api_link = "https://api.openweathermap.org/data/2.5/weather?q=".$this->location->showLocation()."&appid=26e29aa16ee3a3a8af761f4dd0410824&units=metric";
 
 
