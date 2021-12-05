@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Weather forecast!{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center">
+    <div class="weather">
+        <div class="row">
+            <div class=" col-md-12">
+                <div class="card"> <span class="icon"><img class="img-fluid" src="{{ asset( 'http://openweathermap.org/img/w/' ~ forecast.weather[0].icon ~ '.png') }}" /></span>
+                    <div class="title">
+                        <p>{{ forecast.name }}</p>
+                    </div>
+                    <div class="temp">{{ forecast.main.temp }}<sup>&deg;</sup></div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="header">General</div>
+                            <div class="value">{{ forecast.weather[0].main }}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="header">Wind speed</div>
+                            <div class="value">{{ forecast.wind.speed }}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="header">Humidity</div>
+                            <div class="value">{{ forecast.main.humidity }}</div>
+                        </div>
+                    </div>
+                    <div class="btn-group mt-4" role="group" aria-label="Basic example">
+                        <a type="button" href="/forecast" class="btn btn-info">JSON</a>
+                        <a type="button" href="/reset" class="btn btn-info">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+{# 
+{{ forecast }} #}
