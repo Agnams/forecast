@@ -38,6 +38,11 @@ class ForecastService
         $contentType = $response->getHeaders()['content-type'][0];
         $content = $response->getContent();
 
+        //returns false if invalid city
+        if(@$content["cod"] === "404"){
+            return false;
+        }
+
         return $content;
     }
 

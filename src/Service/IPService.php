@@ -11,7 +11,6 @@ class IPService
         $request = Request::createFromGlobals();
 
         $ip = $request->getClientIp();
-        $ip = "46.109.17.164";
 
         return $ip;
     }
